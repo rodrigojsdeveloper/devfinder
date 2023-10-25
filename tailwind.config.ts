@@ -26,6 +26,10 @@ const config: Config = {
         61: '61.83px',
         106: '106px',
       },
+      maxWidth: {
+        138: '138px',
+        730: '730px',
+      },
       height: {
         50: '50px',
         69: '69px',
