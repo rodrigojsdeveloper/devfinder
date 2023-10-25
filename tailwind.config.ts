@@ -17,15 +17,21 @@ const config: Config = {
           200: '#1E2B48',
           300: '#0077FF',
           400: '#4B689B',
+          500: '#61ABFF',
         },
         white: '#FFFFFF',
         gray: '#FFFFFFBF',
       },
       width: {
         61: '61.83px',
+        106: '106px',
+      },
+      height: {
+        50: '50px',
+        69: '69px',
       },
       borderRadius: {
-        def: '10px',
+        def: '12px',
       },
     },
   },
