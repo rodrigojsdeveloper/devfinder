@@ -21,6 +21,12 @@ const config: Config = {
         white: '#FFFFFF',
         gray: '#FFFFFFBF',
       },
+      width: {
+        61: '61.83px',
+      },
+      borderRadius: {
+        def: '10px',
+      },
     },
   },
   plugins: [],
