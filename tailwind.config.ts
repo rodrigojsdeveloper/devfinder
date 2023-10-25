@@ -11,10 +11,15 @@ const config: Config = {
       fontFamily: {
         spaceMono: ['--space-mono'],
       },
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      colors: {
+        blue: {
+          100: '#141D2E',
+          200: '#1E2B48',
+          300: '#0077FF',
+          400: '#4B689B',
+        },
+        white: '#FFFFFF',
+        gray: '#FFFFFFBF',
       },
     },
   },
