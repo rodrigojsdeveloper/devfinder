@@ -38,6 +38,15 @@ const config: Config = {
       borderRadius: {
         def: '12px',
       },
+      keyframes: {
+        swing: {
+          '0%': { transform: 'rotateX(-100deg)', opacity: '0' },
+          '100%': { transform: 'rotateX(0)', opacity: '1' },
+        },
+      },
+      animation: {
+        swing: 'swing 3s both',
+      },
     },
   },
   plugins: [],

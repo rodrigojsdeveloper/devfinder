@@ -26,11 +26,7 @@ const Input = () => {
     }
     api
       .get(`${rowData.owner}`)
-      .then((res) => {
-        console.log(res.data)
-        setUser(res.data)
-        localStorage.setItem('Git Search: owner', res.data.login)
-      })
+      .then((res) => setUser(res.data))
       .catch((error) => console.error(error))
   }
 

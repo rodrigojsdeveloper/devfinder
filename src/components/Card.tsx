@@ -7,48 +7,45 @@ import Link from 'next/link'
 const Card = () => {
   const { user } = useContext(UserContext)
 
+  const date = new Date(user.created_at)
+
+  const formattedDate = `${date.getDate()} ${date.toLocaleString('en', {
+    month: 'short',
+  })} ${date.toLocaleString('en', {
+    year: 'numeric',
+  })}`
+
   return (
-    <div className="flex w-full flex-row gap-x-6 rounded-def bg-blue-200 px-10 py-12">
-      <div className="flex flex-col justify-between">
-        <Image
-          src={user.avatar_url}
-          alt={user.name}
-          className="rounded-full"
-          width={117}
-          height={117}
-        />
-
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="30"
-          height="30"
-          viewBox="0 0 256 256"
-        >
-          <path
-            fill="white"
-            d="M239.2 97.29a16 16 0 0 0-13.81-11L166 81.17l-23.28-55.36a15.95 15.95 0 0 0-29.44 0L90.07 81.17l-59.46 5.15a16 16 0 0 0-9.11 28.06l45.11 39.42l-13.52 58.54a16 16 0 0 0 23.84 17.34l51-31l51.11 31a16 16 0 0 0 23.84-17.34l-13.51-58.6l45.1-39.36a16 16 0 0 0 4.73-17.09Zm-15.22 5l-45.1 39.36a16 16 0 0 0-5.08 15.71L187.35 216l-51.07-31a15.9 15.9 0 0 0-16.54 0l-51 31l13.46-58.6a16 16 0 0 0-5.08-15.71L32 102.35a.37.37 0 0 1 0-.09l59.44-5.14a16 16 0 0 0 13.35-9.75L128 32.08l23.2 55.29a16 16 0 0 0 13.35 9.75l59.45 5.14v.07Z"
+    <div className="animate-swing flex w-full flex-row gap-x-6 rounded-def bg-blue-200 px-6 py-10">
+      <div className="flex w-full max-w-730 flex-col gap-y-4">
+        <div className="flex flex-row gap-x-4">
+          <Image
+            src={user.avatar_url}
+            alt={user.name}
+            className="rounded-full"
+            width={117}
+            height={117}
           />
-        </svg>
-      </div>
+          <div className="w-full">
+            <div className="mb-1 flex w-full flex-row items-center justify-between max-md:flex-col max-md:items-start">
+              <h2 className="text-2xl font-extrabold">{user.name}</h2>
 
-      <div className="w-full max-w-730">
-        <div className="mb-1 flex w-full flex-row items-center justify-between">
-          <h2 className="text-2xl font-extrabold">{user.name}</h2>
+              <p className="text-base">Joined {formattedDate}</p>
+            </div>
 
-          <p className="text-base">Joined {user.created_at}</p>
+            <Link
+              target="_blank"
+              href={user.html_url ? user.html_url : 'https://www.google.com'}
+              className="text-md text-blue-300 hover:text-blue-500"
+            >
+              @{user.login}
+            </Link>
+
+            <p className="text-md mb-7 mt-4 text-gray">{user.bio}</p>
+          </div>
         </div>
 
-        <Link
-          target="_blank"
-          href={user.html_url ? user.html_url : 'https://www.google.com'}
-          className="text-md text-blue-300 hover:text-blue-500"
-        >
-          @{user.login}
-        </Link>
-
-        <p className="text-md mb-7 mt-4 text-gray">{user.bio}</p>
-
-        <div className="flex w-full flex-row items-center gap-x-10 rounded-def bg-blue-100 px-8 py-5">
+        <div className="flex w-full flex-row items-center gap-x-10 rounded-def bg-blue-100 px-8 py-5 max-sm:flex-col max-sm:items-start max-sm:gap-y-5">
           <div className="w-full max-w-138">
             <h3 className="mb-1.5 text-sm text-gray">Repos</h3>
             <p className="text-2xl font-extrabold">{user.public_repos}</p>
@@ -63,9 +60,9 @@ const Card = () => {
           </div>
         </div>
 
-        <div className="mt-8 flex w-full flex-col gap-5">
-          <div className="flex flex-row gap-x-12">
-            <div className="max-w-230 flex w-full flex-row items-center gap-x-5">
+        <div className="mt-8 flex w-full flex-col gap-5 max-sm:gap-y-3">
+          <div className="flex flex-row gap-x-12 max-sm:flex-col max-sm:gap-y-3">
+            <div className="flex w-full max-w-230 flex-row items-center gap-x-5">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
@@ -83,7 +80,7 @@ const Card = () => {
               </p>
             </div>
 
-            <div className="max-w-230 flex w-full flex-row items-center gap-x-5">
+            <div className="flex w-full max-w-230 flex-row items-center gap-x-5">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
@@ -113,8 +110,8 @@ const Card = () => {
             </div>
           </div>
 
-          <div className="flex flex-row items-center gap-x-12">
-            <div className="max-w-230 flex w-full flex-row gap-x-5">
+          <div className="flex flex-row gap-x-12 max-sm:flex-col max-sm:gap-y-3">
+            <div className="flex w-full max-w-230 flex-row gap-x-5">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
@@ -124,13 +121,7 @@ const Card = () => {
               >
                 <path
                   fill="white"
-                  d="M12 8.75a3.25 3.25 0 1 0 0 6.5a3.25 3.25 0 0 0 0-6.5Z"
-                />
-                <path
-                  fill="white"
-                  fillRule="evenodd"
-                  d="M6.77 3.082a47.472 47.472 0 0 1 10.46 0c1.899.212 3.43 1.707 3.653 3.613a45.67 45.67 0 0 1 0 10.61c-.223 1.906-1.754 3.401-3.652 3.614a47.468 47.468 0 0 1-10.461 0c-1.899-.213-3.43-1.708-3.653-3.613a45.672 45.672 0 0 1 0-10.611C3.34 4.789 4.871 3.294 6.77 3.082ZM17 6a1 1 0 1 0 0 2a1 1 0 0 0 0-2Zm-9.75 6a4.75 4.75 0 1 1 9.5 0a4.75 4.75 0 0 1-9.5 0Z"
-                  clipRule="evenodd"
+                  d="M22.46 6c-.77.35-1.6.58-2.46.69c.88-.53 1.56-1.37 1.88-2.38c-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29c0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15c0 1.49.75 2.81 1.91 3.56c-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07a4.28 4.28 0 0 0 4 2.98a8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21C16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56c.84-.6 1.56-1.36 2.14-2.23Z"
                 />
               </svg>
 
@@ -139,7 +130,7 @@ const Card = () => {
               </p>
             </div>
 
-            <div className="max-w-230 flex w-full flex-row items-center gap-x-5">
+            <div className="flex w-full max-w-230 flex-row items-center gap-x-5">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
