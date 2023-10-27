@@ -1,13 +1,17 @@
 'use client'
 import { FieldValues, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { UserContext } from '@/contexts/user.context'
 import userSchema from '@/schemas/user.schema'
+import { useContext } from 'react'
 import api from '@/services/api'
 import * as zod from 'zod'
 
 type FormData = zod.infer<typeof userSchema>
 
 const Input = () => {
+  const { setUser } = useContext(UserContext)
+
   const schema = zod.object({
     owner: zod.string().min(1),
   })
@@ -17,7 +21,6 @@ const Input = () => {
   })
 
   const onSubmitFunction = (data: FieldValues) => {
-    console.log(data)
     const rowData: FormData = {
       owner: data.owner,
     }
@@ -25,6 +28,7 @@ const Input = () => {
       .get(`${rowData.owner}`)
       .then((res) => {
         console.log(res.data)
+        setUser(res.data)
         localStorage.setItem('Git Search: owner', res.data.login)
       })
       .catch((error) => console.error(error))

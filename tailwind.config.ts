@@ -28,6 +28,7 @@ const config: Config = {
       },
       maxWidth: {
         138: '138px',
+        230: '230px',
         730: '730px',
       },
       height: {

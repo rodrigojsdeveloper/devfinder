@@ -1,6 +1,7 @@
 import { Space_Mono as SpaceMono } from 'next/font/google'
 import { PropsWithChildren } from 'react'
 import type { Metadata } from 'next'
+import Providers from '@/contexts'
 import './globals.css'
 
 const spaceMono = SpaceMono({
@@ -17,7 +18,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="en" className={`${spaceMono.className} font-space-mono`}>
-      <body>{children}</body>
+      <body>
+        <Providers>{children}</Providers>
+      </body>
     </html>
   )
 }
