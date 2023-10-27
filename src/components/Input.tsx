@@ -1,6 +1,40 @@
+'use client'
+import { FieldValues, useForm } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
+import userSchema from '@/schemas/user.schema'
+import api from '@/services/api'
+import * as zod from 'zod'
+
+type FormData = zod.infer<typeof userSchema>
+
 const Input = () => {
+  const schema = zod.object({
+    owner: zod.string().min(1),
+  })
+
+  const { register, handleSubmit } = useForm({
+    resolver: zodResolver(schema),
+  })
+
+  const onSubmitFunction = (data: FieldValues) => {
+    console.log(data)
+    const rowData: FormData = {
+      owner: data.owner,
+    }
+    api
+      .get(`${rowData.owner}`)
+      .then((res) => {
+        console.log(res.data)
+        localStorage.setItem('Git Search: owner', res.data.login)
+      })
+      .catch((error) => console.error(error))
+  }
+
   return (
-    <form className="h-69 rounded-def flex w-full flex-row items-center justify-between gap-x-4 bg-blue-200 py-2 pl-5 pr-2">
+    <form
+      onSubmit={handleSubmit(onSubmitFunction)}
+      className="flex h-69 w-full flex-row items-center justify-between gap-x-4 rounded-def bg-blue-200 py-2 pl-5 pr-2"
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="32"
@@ -26,8 +60,13 @@ const Input = () => {
       <input
         placeholder="Search github username"
         className="w-full bg-blue-200"
+        autoComplete="off"
+        {...register('owner')}
       />
-      <button className="w-106 h-50 rounded-def bg-blue-300 hover:bg-blue-500">
+      <button
+        type="submit"
+        className="h-50 w-106 rounded-def bg-blue-300 hover:bg-blue-500"
+      >
         Search
       </button>
     </form>

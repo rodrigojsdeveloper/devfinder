@@ -26,7 +26,7 @@ const Card = () => {
         </svg>
       </div>
 
-      <div className="max-w-730 w-full">
+      <div className="w-full max-w-730">
         <div className="mb-1 flex w-full flex-row items-center justify-between">
           <h2 className="text-2xl font-extrabold">Anton</h2>
 
@@ -40,15 +40,15 @@ const Card = () => {
         <p className="text-md mb-7 mt-4 text-gray">description</p>
 
         <div className="flex w-full flex-row items-center gap-x-10 rounded-def bg-blue-100 px-8 py-5">
-          <div className="max-w-138 w-full">
+          <div className="w-full max-w-138">
             <h3 className="mb-1.5 text-sm text-gray">Repo</h3>
             <p className="text-2xl font-extrabold">9</p>
           </div>
-          <div className="max-w-138 w-full">
+          <div className="w-full max-w-138">
             <h3 className="mb-1.5 text-sm text-gray">Repo</h3>
             <p className="text-2xl font-extrabold">9</p>
           </div>
-          <div className="max-w-138 w-full">
+          <div className="w-full max-w-138">
             <h3 className="mb-1.5 text-sm text-gray">Repo</h3>
             <p className="text-2xl font-extrabold">9</p>
           </div>
