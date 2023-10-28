@@ -16,7 +16,7 @@ const Card = () => {
   })}`
 
   return (
-    <div className="animate-swing flex w-full flex-row gap-x-6 rounded-def bg-blue-200 px-6 py-10">
+    <div className="flex w-full animate-swing flex-row gap-x-6 rounded-def bg-blue-200 px-6 py-10">
       <div className="flex w-full max-w-730 flex-col gap-y-4">
         <div className="flex flex-row gap-x-4">
           <Image
