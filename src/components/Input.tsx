@@ -3,7 +3,7 @@ import { FieldValues, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { UserContext } from '@/contexts/user.context'
 import userSchema from '@/schemas/user.schema'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import api from '@/services/api'
 import * as zod from 'zod'
 
@@ -11,6 +11,8 @@ type FormData = zod.infer<typeof userSchema>
 
 const Input = () => {
   const { setUser } = useContext(UserContext)
+
+  const [isLoading, setIsLoading] = useState<boolean>(false)
 
   const schema = zod.object({
     owner: zod.string().min(1),
@@ -21,6 +23,8 @@ const Input = () => {
   })
 
   const onSubmitFunction = (data: FieldValues) => {
+    setIsLoading(true)
+
     const rowData: FormData = {
       owner: data.owner,
     }
@@ -28,6 +32,7 @@ const Input = () => {
       .get(`${rowData.owner}`)
       .then((res) => setUser(res.data))
       .catch((error) => console.error(error))
+      .finally(() => setIsLoading(false))
   }
 
   return (
@@ -59,15 +64,39 @@ const Input = () => {
       </svg>
       <input
         placeholder="Search github username"
-        className="w-full bg-blue-200"
+        className="w-full bg-blue-200 focus:placeholder:text-transparent"
         autoComplete="off"
         {...register('owner')}
       />
       <button
         type="submit"
-        className="h-50 w-106 rounded-def bg-blue-300 hover:bg-blue-500"
+        disabled={isLoading}
+        className="h-50 w-106 rounded-def bg-blue-300 hover:bg-blue-500 active:bg-blue-300 disabled:flex disabled:cursor-default disabled:items-center disabled:justify-center disabled:bg-blue-300"
       >
-        Search
+        {isLoading ? (
+          <svg
+            className="h-5 w-5 animate-spin text-white"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <circle
+              className="opacity-25"
+              cx="12"
+              cy="12"
+              r="10"
+              stroke="currentColor"
+              stroke-width="4"
+            ></circle>
+            <path
+              className="opacity-75"
+              fill="currentColor"
+              d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+            ></path>
+          </svg>
+        ) : (
+          'Search'
+        )}
       </button>
     </form>
   )
