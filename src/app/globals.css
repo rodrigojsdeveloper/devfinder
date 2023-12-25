@@ -1,6 +1,6 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 
 * {
   border: 0;
@@ -16,11 +16,25 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  height: -webkit-fill-available;
 }
 
 body {
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+
   color: #FFFFFF;
   background-color: #141D2E;
+}
+
+button,
+a, img {
+  user-select: none;
 }
 
 button,
@@ -34,15 +48,15 @@ a {
 }
 
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 0.375rem;
 }
 
 ::-webkit-scrollbar-track {
-  background-color: var(--transparent);
+  background-color: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  border-radius: 0.5px;
+  border-radius: 0.031rem;
   background-color: #1E2B48;
 }
 

@@ -12,7 +12,7 @@ export default function Home() {
     Object.keys(user).length === 0 && user.constructor === Object
 
   return (
-    <main className="mx-auto flex min-h-screen w-full max-w-4xl flex-col items-center p-24 max-sm:px-12">
+    <main className="mx-auto flex min-h-screen w-full max-w-4xl flex-col items-center px-6 py-16 sm:px-24">
       <Header />
       <div className="mt-7 flex w-full flex-col gap-y-6">
         <Input />

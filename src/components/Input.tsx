@@ -1,4 +1,5 @@
 'use client'
+
 import { FieldValues, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { UserContext } from '@/contexts/user.context'
@@ -38,7 +39,7 @@ const Input = () => {
   return (
     <form
       onSubmit={handleSubmit(onSubmitFunction)}
-      className="flex h-69 w-full flex-row items-center justify-between gap-x-4 rounded-def bg-blue-200 py-2 pl-5 pr-2"
+      className="flex h-[4.313rem] w-full flex-row items-center justify-between gap-x-4 rounded-def bg-blue-200 py-2 pl-5 pr-2"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -71,7 +72,7 @@ const Input = () => {
       <button
         type="submit"
         disabled={isLoading}
-        className="h-50 w-106 rounded-def bg-blue-300 hover:bg-blue-500 active:bg-blue-300 disabled:flex disabled:cursor-default disabled:items-center disabled:justify-center disabled:bg-blue-300"
+        className="h-[3.125rem] w-[6.625rem] rounded-def bg-blue-300 hover:bg-blue-500 active:bg-blue-300 disabled:flex disabled:cursor-default disabled:items-center disabled:justify-center disabled:bg-blue-300"
       >
         {isLoading ? (
           <svg

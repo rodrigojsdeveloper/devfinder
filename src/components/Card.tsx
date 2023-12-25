@@ -1,4 +1,5 @@
 'use client'
+
 import { UserContext } from '@/contexts/user.context'
 import { useContext } from 'react'
 import Image from 'next/image'
@@ -17,8 +18,8 @@ const Card = () => {
 
   return (
     <div className="flex w-full animate-swing flex-row gap-x-6 rounded-def bg-blue-200 px-6 py-10">
-      <div className="flex w-full max-w-730 flex-col gap-y-4">
-        <div className="flex flex-row gap-x-4">
+      <div className="flex w-full max-w-[45.625rem] flex-col gap-y-4">
+        <div className="flex flex-col gap-4 sm:flex-row">
           <Image
             src={user.avatar_url}
             alt={user.name}
@@ -27,7 +28,7 @@ const Card = () => {
             height={117}
           />
           <div className="w-full">
-            <div className="mb-1 flex w-full flex-row items-center justify-between max-md:flex-col max-md:items-start">
+            <div className="mb-1 flex w-full flex-col items-start justify-between md:flex-row">
               <h2 className="text-2xl font-extrabold">{user.name}</h2>
 
               <p className="text-base">Joined {formattedDate}</p>
@@ -45,24 +46,24 @@ const Card = () => {
           </div>
         </div>
 
-        <div className="flex w-full flex-row items-center gap-x-10 rounded-def bg-blue-100 px-8 py-5 max-sm:flex-col max-sm:items-start max-sm:gap-y-5">
-          <div className="w-full max-w-138">
+        <div className="flex w-full flex-col items-start gap-x-10 gap-y-5 rounded-def bg-blue-100 px-8 py-5 sm:flex-row">
+          <div className="w-full max-w-[8.625rem]">
             <h3 className="mb-1.5 text-sm text-gray">Repos</h3>
             <p className="text-2xl font-extrabold">{user.public_repos}</p>
           </div>
-          <div className="w-full max-w-138">
+          <div className="w-full max-w-[8.625rem]">
             <h3 className="mb-1.5 text-sm text-gray">Followers</h3>
             <p className="text-2xl font-extrabold">{user.followers}</p>
           </div>
-          <div className="w-full max-w-138">
+          <div className="w-full max-w-[8.625rem]">
             <h3 className="mb-1.5 text-sm text-gray">Following</h3>
             <p className="text-2xl font-extrabold">{user.following}</p>
           </div>
         </div>
 
-        <div className="mt-8 flex w-full flex-col gap-5 max-sm:gap-y-3">
-          <div className="flex flex-row gap-x-12 max-sm:flex-col max-sm:gap-y-3">
-            <div className="flex w-full max-w-230 flex-row items-center gap-x-5">
+        <div className="mt-8 flex w-full flex-col gap-y-3 sm:gap-5">
+          <div className="flex flex-col gap-x-12 gap-y-3 sm:flex-row">
+            <div className="flex w-full max-w-[14.375rem] flex-row items-center gap-x-5">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
@@ -80,7 +81,7 @@ const Card = () => {
               </p>
             </div>
 
-            <div className="flex w-full max-w-230 flex-row items-center gap-x-5">
+            <div className="flex w-full max-w-[14.375rem] flex-row items-center gap-x-5">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
@@ -110,8 +111,8 @@ const Card = () => {
             </div>
           </div>
 
-          <div className="flex flex-row gap-x-12 max-sm:flex-col max-sm:gap-y-3">
-            <div className="flex w-full max-w-230 flex-row gap-x-5">
+          <div className="flex flex-col gap-x-12 gap-y-3 sm:flex-row">
+            <div className="flex w-full max-w-[14.375rem] flex-row gap-x-5">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
@@ -130,7 +131,7 @@ const Card = () => {
               </p>
             </div>
 
-            <div className="flex w-full max-w-230 flex-row items-center gap-x-5">
+            <div className="flex w-full max-w-[14.375rem] flex-row items-center gap-x-5">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"

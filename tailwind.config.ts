@@ -19,24 +19,10 @@ const config: Config = {
           400: '#4B689B',
           500: '#61ABFF',
         },
-        white: '#FFFFFF',
         gray: '#FFFFFFBF',
       },
-      width: {
-        61: '61.83px',
-        106: '106px',
-      },
-      maxWidth: {
-        138: '138px',
-        230: '230px',
-        730: '730px',
-      },
-      height: {
-        50: '50px',
-        69: '69px',
-      },
       borderRadius: {
-        def: '12px',
+        def: '0.75rem',
       },
       keyframes: {
         swing: {
