@@ -1,13 +1,14 @@
 'use client'
+
 import { createContext, useState, PropsWithChildren } from 'react'
-import { IUserProps, IUserContextData } from '../interfaces'
+import { UserProps, UserContextDataProps } from '../interfaces'
 
-const UserContext = createContext({} as IUserContextData)
+export const UserContext = createContext({} as UserContextDataProps)
 
-const UserContextProvider = ({ children }: PropsWithChildren) => {
-  const [user, setUser] = useState<IUserProps>({} as IUserProps)
+export const UserContextProvider = ({ children }: PropsWithChildren) => {
+  const [user, setUser] = useState<UserProps>({} as UserProps)
 
-  const userContextData: IUserContextData = {
+  const userContextData: UserContextDataProps = {
     user,
     setUser,
   }
@@ -18,5 +19,3 @@ const UserContextProvider = ({ children }: PropsWithChildren) => {
     </UserContext.Provider>
   )
 }
-
-export { UserContext, UserContextProvider }

@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction } from 'react'
 
-export interface IUserProps {
+export interface UserProps {
   login: string
   id: number
   node_id: string
@@ -35,7 +35,7 @@ export interface IUserProps {
   updated_at: string
 }
 
-export interface IUserContextData {
-  user: IUserProps
-  setUser: Dispatch<SetStateAction<IUserProps>>
+export interface UserContextDataProps {
+  user: UserProps
+  setUser: Dispatch<SetStateAction<UserProps>>
 }

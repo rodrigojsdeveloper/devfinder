@@ -1,9 +1,10 @@
 'use client'
-import { UserContext } from '@/contexts/user.context'
-import Header from '@/components/Header'
-import Input from '@/components/Input'
-import Card from '@/components/Card'
+
 import { useContext } from 'react'
+import { UserContext } from '@/contexts/user.context'
+import { Header } from '@/components/Header'
+import { Input } from '@/components/Input'
+import { Card } from '@/components/Card'
 
 export default function Home() {
   const { user } = useContext(UserContext)

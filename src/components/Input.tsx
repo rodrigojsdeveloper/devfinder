@@ -1,16 +1,16 @@
 'use client'
 
+import { useContext, useState } from 'react'
 import { FieldValues, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { UserContext } from '@/contexts/user.context'
-import userSchema from '@/schemas/user.schema'
-import { useContext, useState } from 'react'
-import api from '@/services/api'
+import { userSchema } from '@/schemas/user.schema'
+import { api } from '@/services/api'
 import * as zod from 'zod'
 
 type FormData = zod.infer<typeof userSchema>
 
-const Input = () => {
+export const Input = () => {
   const { setUser } = useContext(UserContext)
 
   const [isLoading, setIsLoading] = useState<boolean>(false)
@@ -102,5 +102,3 @@ const Input = () => {
     </form>
   )
 }
-
-export default Input

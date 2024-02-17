@@ -4,8 +4,9 @@ import { UserContext } from '@/contexts/user.context'
 import { useContext } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { cn } from '@/utils/cn'
 
-const Card = () => {
+export const Card = () => {
   const { user } = useContext(UserContext)
 
   const date = new Date(user.created_at)
@@ -69,14 +70,14 @@ const Card = () => {
                 width="20"
                 height="20"
                 viewBox="0 0 12 12"
-                className={`${user.location ? '' : 'opacity-40'}`}
+                className={cn(user.location ? '' : 'opacity-40')}
               >
                 <path
                   fill="white"
                   d="M6 .5A4.5 4.5 0 0 1 10.5 5c0 1.863-1.42 3.815-4.2 5.9a.5.5 0 0 1-.6 0C2.92 8.815 1.5 6.863 1.5 5A4.5 4.5 0 0 1 6 .5Zm0 3a1.5 1.5 0 1 0 0 3a1.5 1.5 0 0 0 0-3Z"
                 />
               </svg>
-              <p className={`${user.location ? '' : 'opacity-40'}`}>
+              <p className={cn(user.location ? '' : 'opacity-40')}>
                 {user.location || 'Not Available'}
               </p>
             </div>
@@ -87,7 +88,7 @@ const Card = () => {
                 width="20"
                 height="20"
                 viewBox="0 0 24 24"
-                className={`${user.blog ? '' : 'opacity-40'}`}
+                className={cn(user.blog ? '' : 'opacity-40')}
               >
                 <g
                   fill="none"
@@ -102,9 +103,10 @@ const Card = () => {
               <Link
                 target="_blank"
                 href={user.blog ? user.blog : 'https://www.google.com'}
-                className={`cursor-pointer hover:underline ${
-                  user.blog ? '' : 'opacity-40'
-                }`}
+                className={cn(
+                  'cursor-pointer hover:underline',
+                  user.blog ? '' : 'opacity-40',
+                )}
               >
                 {user.blog ? 'WebSite' : 'Not Available'}
               </Link>
@@ -118,7 +120,7 @@ const Card = () => {
                 width="20"
                 height="20"
                 viewBox="0 0 24 24"
-                className={`${user.twitter_username ? '' : 'opacity-40'}`}
+                className={cn(user.twitter_username ? '' : 'opacity-40')}
               >
                 <path
                   fill="white"
@@ -126,7 +128,7 @@ const Card = () => {
                 />
               </svg>
 
-              <p className={`${user.twitter_username ? '' : 'opacity-40'}`}>
+              <p className={cn(user.twitter_username ? '' : 'opacity-40')}>
                 {user.twitter_username || 'Not Available'}
               </p>
             </div>
@@ -137,14 +139,14 @@ const Card = () => {
                 width="20"
                 height="20"
                 viewBox="0 0 256 256"
-                className={`${user.company ? '' : 'opacity-40'}`}
+                className={cn(user.company ? '' : 'opacity-40')}
               >
                 <path
                   fill="white"
                   d="M239.73 208H224V96a16 16 0 0 0-16-16h-44a4 4 0 0 0-4 4v124h-16V32.41a16.43 16.43 0 0 0-6.16-13a16 16 0 0 0-18.72-.69L39.12 72A16 16 0 0 0 32 85.34V208H16.27A8.18 8.18 0 0 0 8 215.47a8 8 0 0 0 8 8.53h224a8 8 0 0 0 8-8.53a8.18 8.18 0 0 0-8.27-7.47ZM76 184a8 8 0 0 1-8.53 8a8.18 8.18 0 0 1-7.47-8.28v-15.45a8.19 8.19 0 0 1 7.47-8.27a8 8 0 0 1 8.53 8Zm0-56a8 8 0 0 1-8.53 8a8.19 8.19 0 0 1-7.47-8.28v-15.45a8.19 8.19 0 0 1 7.47-8.27a8 8 0 0 1 8.53 8Zm40 56a8 8 0 0 1-8.53 8a8.18 8.18 0 0 1-7.47-8.26v-15.47a8.19 8.19 0 0 1 7.47-8.26a8 8 0 0 1 8.53 8Zm0-56a8 8 0 0 1-8.53 8a8.19 8.19 0 0 1-7.47-8.26v-15.47a8.19 8.19 0 0 1 7.47-8.26a8 8 0 0 1 8.53 8Z"
                 />
               </svg>
-              <p className={`${user.company ? '' : 'opacity-40'}`}>
+              <p className={cn(user.company ? '' : 'opacity-40')}>
                 {user.company || 'Not Available'}
               </p>
             </div>
@@ -154,5 +156,3 @@ const Card = () => {
     </div>
   )
 }
-
-export default Card

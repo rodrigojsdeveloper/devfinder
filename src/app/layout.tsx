@@ -1,6 +1,6 @@
-import { Space_Mono as SpaceMono } from 'next/font/google'
 import { PropsWithChildren } from 'react'
 import type { Metadata } from 'next'
+import { Space_Mono as SpaceMono } from 'next/font/google'
 import Providers from '@/contexts'
 import './globals.css'
 
