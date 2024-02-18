@@ -1,9 +1,9 @@
 <div align="center">
 <h1>
-  DevFinder
+  devFinder
 </h1>
 
-<p>DevFinder simplifies user search on GitHub.</p>
+<p>devFinder simplifies user search on GitHub.</p>
 </div>
 <br/>
 
@@ -27,7 +27,7 @@ To install project dependencies, open the terminal at the root and run the follo
 npm install
 ```
 
-## Starting DevFinder
+## Starting devFinder
 
 To start the project, run the following command in the terminal:
 
@@ -35,7 +35,7 @@ To start the project, run the following command in the terminal:
 npm run dev
 ```
 
-### Accessing DevFinder on Vercel
+### Accessing devFinder on Vercel
 
 You can access the DevFinder application at the following link:
 

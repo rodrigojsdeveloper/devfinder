@@ -2,9 +2,9 @@
 
 import { useContext } from 'react'
 import { UserContext } from '@/contexts/user.context'
-import { Header } from '@/components/Header'
-import { Input } from '@/components/Input'
-import { Card } from '@/components/Card'
+import { Header } from '@/components/header'
+import { Input } from '@/components/input'
+import { Card } from '@/components/card'
 
 export default function Home() {
   const { user } = useContext(UserContext)

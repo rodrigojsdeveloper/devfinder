@@ -5,6 +5,7 @@ import { FieldValues, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { UserContext } from '@/contexts/user.context'
 import { userSchema } from '@/schemas/user.schema'
+import { Loader2, Search } from 'lucide-react'
 import { api } from '@/services/api'
 import * as zod from 'zod'
 
@@ -41,28 +42,7 @@ export const Input = () => {
       onSubmit={handleSubmit(onSubmitFunction)}
       className="flex h-[4.313rem] w-full flex-row items-center justify-between gap-x-4 rounded-def bg-blue-200 py-2 pl-5 pr-2"
     >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="32"
-        height="32"
-        viewBox="0 0 512 512"
-      >
-        <path
-          fill="none"
-          stroke="#07f"
-          strokeMiterlimit="10"
-          strokeWidth="32"
-          d="M221.09 64a157.09 157.09 0 1 0 157.09 157.09A157.1 157.1 0 0 0 221.09 64Z"
-        />
-        <path
-          fill="none"
-          stroke="#07f"
-          strokeLinecap="round"
-          strokeMiterlimit="10"
-          strokeWidth="32"
-          d="M338.29 338.29L448 448"
-        />
-      </svg>
+      <Search size={32} className="text-[#07f]" />
       <input
         placeholder="Search github username"
         className="w-full bg-blue-200 focus:placeholder:text-transparent"
@@ -72,29 +52,10 @@ export const Input = () => {
       <button
         type="submit"
         disabled={isLoading}
-        className="h-[3.125rem] w-[6.625rem] rounded-def bg-blue-300 hover:bg-blue-500 active:bg-blue-300 disabled:flex disabled:cursor-default disabled:items-center disabled:justify-center disabled:bg-blue-300"
+        className="h-[3.125rem] w-[6.625rem] rounded-def bg-blue-300 hover:bg-blue-500 focus-visible:bg-blue-500 disabled:flex disabled:cursor-default disabled:items-center disabled:justify-center disabled:bg-blue-300"
       >
         {isLoading ? (
-          <svg
-            className="h-5 w-5 animate-spin text-white"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-          >
-            <circle
-              className="opacity-25"
-              cx="12"
-              cy="12"
-              r="10"
-              stroke="currentColor"
-              stroke-width="4"
-            ></circle>
-            <path
-              className="opacity-75"
-              fill="currentColor"
-              d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-            ></path>
-          </svg>
+          <Loader2 size={20} className="animate-spin text-white" />
         ) : (
           'Search'
         )}
