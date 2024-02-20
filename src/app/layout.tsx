@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="en">
-      <body className={cn('font-space-mono', spaceMono.className)}>
+      <body className={cn('font-space-mono antialiased', spaceMono.className)}>
         <Providers>{children}</Providers>
       </body>
     </html>

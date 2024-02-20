@@ -49,16 +49,16 @@ export const Card = () => {
         </div>
 
         <div className="flex w-full flex-col items-start gap-x-10 gap-y-5 rounded-def bg-blue-100 px-8 py-5 sm:flex-row">
-          <div className="w-full max-w-[8.625rem]">
-            <h3 className="mb-1.5 text-sm text-gray">Repos</h3>
+          <div className="flex w-full max-w-[8.625rem] flex-col gap-1.5">
+            <h3 className="text-sm text-gray">Repos</h3>
             <p className="text-2xl font-extrabold">{user.public_repos}</p>
           </div>
-          <div className="w-full max-w-[8.625rem]">
-            <h3 className="mb-1.5 text-sm text-gray">Followers</h3>
+          <div className="flex w-full max-w-[8.625rem] flex-col gap-1.5">
+            <h3 className="text-sm text-gray">Followers</h3>
             <p className="text-2xl font-extrabold">{user.followers}</p>
           </div>
-          <div className="w-full max-w-[8.625rem]">
-            <h3 className="mb-1.5 text-sm text-gray">Following</h3>
+          <div className="flex w-full max-w-[8.625rem] flex-col gap-1.5">
+            <h3 className="text-sm text-gray">Following</h3>
             <p className="text-2xl font-extrabold">{user.following}</p>
           </div>
         </div>
