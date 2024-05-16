@@ -25,7 +25,7 @@ export const Card = () => {
           <Image
             src={user.avatar_url}
             alt={user.name}
-            className="rounded-full"
+            className="no-select rounded-full"
             width={117}
             height={117}
           />

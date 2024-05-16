@@ -31,7 +31,7 @@ export const Search = () => {
       owner: data.owner,
     }
     api
-      .get(`${rowData.owner}`)
+      .get(`/${rowData.owner}`)
       .then((res) => {
         setUser(res.data)
         reset()

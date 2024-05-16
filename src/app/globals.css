@@ -1,6 +1,11 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.no-select {
+  @apply select-none;
+  -webkit-user-drag: none;
+}
 
 * {
   border: 0;
@@ -30,28 +35,6 @@ body {
   background-color: #141D2E;
 }
 
-:is(button, a, img, input) {
-  user-select: none;
-}
-
-:is(button, a) {
-  transition: 0.3s;
-  cursor: pointer;
-}
-
 a {
   text-decoration: none;
-}
-
-::-webkit-scrollbar {
-  width: 0.375rem;
-}
-
-::-webkit-scrollbar-track {
-  background-color: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  border-radius: 0.75rem;
-  background-color: #1E2B48;
 }
