@@ -1,5 +1,5 @@
 import z from 'zod'
 
 export const userSchema = z.object({
-  owner: z.string(),
+  owner: z.string().min(1),
 })

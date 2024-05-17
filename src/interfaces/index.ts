@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction } from 'react'
+import { FieldValues, UseFormReset } from 'react-hook-form'
 
 export interface UserProps {
   login: string
@@ -37,5 +37,6 @@ export interface UserProps {
 
 export interface UserContextDataProps {
   user: UserProps
-  setUser: Dispatch<SetStateAction<UserProps>>
+  isLoading: boolean
+  fetchUser: (name: string, reset: UseFormReset<FieldValues>) => void
 }

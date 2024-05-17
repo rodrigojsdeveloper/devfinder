@@ -13,12 +13,12 @@ export default function Home() {
     Object.keys(user).length === 0 && user.constructor === Object
 
   return (
-    <main className="mx-auto flex min-h-screen w-full max-w-4xl flex-col items-center gap-7 px-6 py-16 sm:px-24">
+    <main className="mx-auto flex min-h-screen w-full max-w-4xl flex-col items-center gap-7 px-6 py-16 md:px-24">
       <Header />
-      <div className="flex w-full flex-col gap-y-6">
+      <section className="flex w-full flex-col gap-y-6">
         <Search />
         {!isUserEmpty ? <Card /> : null}
-      </div>
+      </section>
     </main>
   )
 }

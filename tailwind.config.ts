@@ -13,16 +13,14 @@ const config: Config = {
       },
       colors: {
         blue: {
-          100: '#141D2E',
-          200: '#1E2B48',
-          300: '#0077FF',
-          400: '#4B689B',
-          500: '#61ABFF',
+          100: '#61ABFF',
+          200: '#0077FF',
+          300: '#1E2B48',
+          400: '#141D2E',
         },
-        gray: '#FFFFFFBF',
-      },
-      borderRadius: {
-        def: '0.75rem',
+        gray: {
+          100: '#FFFFFFBF',
+        },
       },
       keyframes: {
         swing: {

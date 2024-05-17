@@ -21,6 +21,7 @@
   -webkit-text-size-adjust: 100%;
 
   -webkit-tap-highlight-color: transparent;
+  scrollbar-color: #1E2B48 transparent;
 }
 
 html {
