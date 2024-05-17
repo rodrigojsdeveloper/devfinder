@@ -68,7 +68,7 @@ export const Card = () => {
               @{user.login}
             </Link>
 
-            <p className="text-md text-gray-100 mb-7 mt-4">{user.bio}</p>
+            <p className="text-md mb-7 mt-4 text-gray-100">{user.bio}</p>
           </div>
         </section>
 
@@ -78,7 +78,7 @@ export const Card = () => {
               key={`${statistic}-${index}`}
               className="flex w-full max-w-[8.625rem] flex-col gap-1.5"
             >
-              <h3 className="text-gray-100 text-sm">{statistic.title}</h3>
+              <h3 className="text-sm text-gray-100">{statistic.title}</h3>
               <p className="text-2xl font-extrabold">{statistic.description}</p>
             </li>
           ))}
