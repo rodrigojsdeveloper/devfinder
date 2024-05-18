@@ -9,7 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        spaceMono: ['--font-space-mono'],
+        spaceMono: ['var(--font-space-mono)'],
       },
       colors: {
         blue: {
