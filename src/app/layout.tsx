@@ -8,7 +8,7 @@ import './globals.css'
 const spaceMono = SpaceMono({
   subsets: ['latin'],
   weight: ['400', '700'],
-  variable: '--space-mono',
+  variable: '--font-space-mono',
 })
 
 export const metadata: Metadata = {
@@ -19,7 +19,12 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="en">
-      <body className={cn('font-space-mono antialiased', spaceMono.className)}>
+      <body
+        className={cn(
+          'font-space-mono scroll-smooth antialiased',
+          spaceMono.className,
+        )}
+      >
         <Providers>{children}</Providers>
       </body>
     </html>
